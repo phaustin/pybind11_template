@@ -37,9 +37,6 @@ test:
   imports:
     - cmake_example
 
-  comands:
-    - pytest tests/test_pha.py
-
 about:
   summary: An example project built with pybind11.
   license_file: LICENSE
