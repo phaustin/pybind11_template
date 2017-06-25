@@ -3,6 +3,8 @@ import re
 import sys
 import platform
 import subprocess
+import numpy
+from pathlib import Path
 
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
@@ -32,9 +34,15 @@ class CMakeBuild(build_ext):
             self.build_extension(ext)
 
     def build_extension(self, ext):
+        cmake_path=str(Path(sys.exec_prefix) / Path('share/cmake/pybind11'))
+        xtensor_path=str(Path(sys.exec_prefix) / Path('share/cmake/xtensor'))
+        numpy_path=numpy.get_include()
+        cmake_path=cmake_path + ";" + xtensor_path
         extdir = os.path.abspath(os.path.dirname(self.get_ext_fullpath(ext.name)))
         cmake_args = ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + extdir,
-                      '-DPYTHON_EXECUTABLE=' + sys.executable]
+                      '-DPYTHON_EXECUTABLE=' + sys.executable,
+                      '-DCONDA_CMAKE=' + cmake_path,
+        ]
 
         cfg = 'Debug' if self.debug else 'Release'
         build_args = ['--config', cfg]

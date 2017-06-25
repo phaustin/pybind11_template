@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 project(cmake_example)
-
-add_subdirectory(pybind11)
+set(CMAKE_MODULE_PATH "${CONDA_CMAKE};${CMAKE_MODULE_PATH}")
+include(pybind11Tools)
+include(xtensorConfig)
 pybind11_add_module(cmake_example src/main.cpp)
