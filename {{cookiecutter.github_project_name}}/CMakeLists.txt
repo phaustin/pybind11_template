@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.8)
+project({{ cookiecutter.cpp_module_name }})
+set(CMAKE_MODULE_PATH "${CONDA_CMAKE};${CMAKE_MODULE_PATH}")
+include(pybind11Tools)
+include(xtensorConfig)
+pybind11_add_module({{ cookiecutter.cpp_module_name }} src/main.cpp)
