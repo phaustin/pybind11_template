@@ -1,4 +1,5 @@
 {
     "github_project_name": "phaustin_example_extension",
-    "cpp_module_name" : "pha_lib"
+    "cpp_module_name" : "pha_lib",
+    "python_package_name" : "pha_test"
 }

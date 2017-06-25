@@ -67,7 +67,7 @@ class CMakeBuild(build_ext):
 setup(
     name='{{ cookiecutter.cpp_module_name }}',
     version='0.0.1',
-    packages=['pha_test'],
+    packages=['{{cookiecutter.python_package_name}}'],
     author='Dean Moldovan',
     author_email='dean0x7d@gmail.com',
     description='A test project using pybind11 and CMake',
