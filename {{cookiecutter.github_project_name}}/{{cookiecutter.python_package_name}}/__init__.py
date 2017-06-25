@@ -1,1 +1,1 @@
-didit='I really did it'
+print('inside __init__.py')
